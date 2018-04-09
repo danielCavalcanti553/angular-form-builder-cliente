@@ -9,8 +9,23 @@ export class ErrorInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         console.log("Funcionour");
         return next.handle(req).catch((error,caught) => {
-            return Observable.throw(alert("Erro")) ;
+            return Observable.throw(
+            
+                alert(this.mensagem(error.status))
+            
+            ) ;
         }) as any;
+    }
+
+    mensagem(cod : number) : string{
+        console.log(cod);
+
+    switch(cod){
+        case 401:
+            return "Você não possui acesso";
+        default:
+            return "Erro default";
+    }
     }
 }
 export const ErrorInterceptorProvider = {

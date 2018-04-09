@@ -22,7 +22,9 @@ import { ErrorInterceptorProvider } from './error-interceptor';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ClienteService,ErrorHandler,ErrorInterceptorProvider],
+  providers: [
+    ClienteService,
+    ErrorInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
